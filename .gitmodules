@@ -1,0 +1,3 @@
+[submodule "src/Ntara"]
+	path = src/Ntara
+	url = https://github.com/jonathanhfmills/Ntara.git
