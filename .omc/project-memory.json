@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1778518854528,
+  "projectRoot": "/home/jon/userspace/src/orchestrator",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 6,
+      "lastAccessed": 1778518854523,
+      "keyFiles": [
+        "ADR-FORMAT.md",
+        "AGENTS.md",
+        "CONTEXT-FORMAT.md",
+        "GLOSSARY-FORMAT.md",
+        "LANGUAGE-FORMAT.md"
+      ]
+    },
+    "skills": {
+      "path": "skills",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1778518854525,
+      "keyFiles": []
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 1,
+      "lastAccessed": 1778518854525,
+      "keyFiles": [
+        "AGENTS.md"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
