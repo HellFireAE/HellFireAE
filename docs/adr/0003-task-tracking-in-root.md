@@ -1,7 +1,7 @@
 # Task tracking centralised in the orchestrator repo
 
 ## Status
-Accepted
+Partially superseded by [0009](0009-retire-tasks-md.md) — the `TASKS.md` backlog half of this decision is retired; the Daily Log half still stands.
 
 ## Context
 Work spans multiple projects simultaneously. Without a single planning location, cross-project status is invisible at meeting time and automation has no stable entry point.
