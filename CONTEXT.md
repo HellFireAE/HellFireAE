@@ -21,8 +21,11 @@ Standard tags for Daily Log line items and commit message types:
 
 ## Relationships
 
-- A **Project** is mounted under `src/<repo-name>` and has its own git history and branch strategy
-- A **Sub-submodule** lives inside a Project and has its own remote, branch rules, and PR workflow (see ADR 0005)
+- The **Hermes Operator** is this workspace root; it owns **Dotfile Packages** directly and mounts **Agencies** as submodules
+- An **Agency** is mounted under `src/<repo-name>` of the Hermes Operator and has its own git history and branch strategy
+- A **Customer** lives inside an Agency and has its own remote, branch rules, and PR workflow (see ADR 0005)
+- A **Customer Project** lives inside a Customer, one depth level further — same branch/PR discipline as Customer
+- A **Dotfile Package** is a directory under `config/` in the Hermes Operator managed by GNU Stow, mirroring `$HOME` layout
 - A **Work Item** appears in the **Daily Log** when work is in-progress or complete
 - A **Work Item** appears in the **Backlog** when planned but not yet started
 - Each line item in a **Daily Log** carries a **Tag** that becomes the commit type

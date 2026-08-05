@@ -1,23 +1,25 @@
 # git-orchestrator
 
 ## Purpose
-A personal orchestrator repository that manages project submodules, tracks daily work against an issue tracker, and records architectural decisions at the orchestrator level. It does not contain production code directly — instead it mounts client and personal projects as git submodules under `src/<repo-name>`, keeping planning and automation infrastructure in one place while each project retains its own git history, branch strategy, and deployment pipeline.
+This workspace is the **Hermes Operator** — a personal orchestrator that manages Agency submodules, tracks daily work against an issue tracker, and records architectural decisions at the orchestrator level. It does not contain client/production code directly — instead it mounts client and personal codebases as **Agency** git submodules under `src/<repo-name>`, keeping planning and automation infrastructure in one place while each Agency retains its own git history, branch strategy, and deployment pipeline. It does own personal machine configuration directly, as top-level **Dotfile Packages** managed by GNU Stow.
 
 ## Key Files
 | File | Description |
 |------|-------------|
 | `TASKS.md` | Forward-looking backlog of upcoming work items (planned but not started) |
-| `GLOSSARY.md` | Canonical term definitions for orchestrator concepts (Project, Work Item, Daily Log, HITL tags, etc.) |
+| `GLOSSARY.md` | Canonical term definitions for orchestrator concepts (Agency, Customer, Dotfile Package, Work Item, Daily Log, HITL tags, etc.) |
 | `LANGUAGE.md` | Rejected framings, behavioral rules, and resolved ambiguities for AI agents |
 | `CONTEXT.md` | Relationships, examples, Tags reference, and HITL classification framework |
 | `CONTEXT-MAP.md` | High-level map of bounded contexts and their relationships |
 | `RULES.md` | Operational rules: AI agent file ownership, read permissions, debate execution order |
+| `Makefile` | Machine bootstrap targets (package installs, language runtimes, GNU Stow linking) — `make help` for the full list |
 
 ## Subdirectories
 | Directory | Purpose |
 |-----------|---------|
 | `docs/` | Planning records: ADRs (orchestrator-level) and daily work logs (see `docs/AGENTS.md`) |
-| `src/` | Git submodules — one per mounted project (see `src/AGENTS.md`) |
+| `src/` | Git submodules — one per mounted Agency (see `src/AGENTS.md`) |
+| `config/` | Dotfile Packages (`claude/`, `codex/`, `gemini/`, `qwen/`, `git/`, `tmux/`, `bin/`) — GNU Stow-managed, symlinked into `$HOME` via `make link`. `config/omc/project-memory.json` is bootstrap-copied (not symlinked) into `.omc/` instead — OMC rewrites that file in place, which would break a symlink; `make sync-memory` pulls the live version back for committing |
 
 ## For AI Agents
 
@@ -30,7 +32,7 @@ A personal orchestrator repository that manages project submodules, tracks daily
 ### Common Patterns
 - New daily work goes in `docs/tasks/YYYY-MM-DD.md` seeded from `docs/tasks/YYYY-MM-DD.md` (template).
 - Planned work items belong in `TASKS.md` until work begins; then they move to the daily log.
-- ADRs belong in `docs/adr/` and cover orchestrator-level decisions only. Project-level decisions live inside the submodule's own `docs/adr/`.
+- ADRs belong in `docs/adr/` and cover orchestrator-level decisions only. Agency-level decisions live inside the submodule's own `docs/adr/`.
 
 ### Domain Language Maintenance
 

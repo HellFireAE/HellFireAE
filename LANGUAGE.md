@@ -4,13 +4,16 @@
 
 | Use | Do not use |
 |-----|-----------|
-| Project | repo, app, site |
+| Agency | Project (old name), repo, app, site |
 | Work Item | ticket, task, issue, card, story (unless quoting issue tracker hierarchy) |
 | Daily Log | task file, daily standup, journal |
 | Backlog | todo, roadmap, sprint |
 | Tag | label, type, category |
 | ADR | design doc, RFC |
-| Sub-submodule | inner repo, nested repo |
+| Customer | Sub-submodule (old name), inner repo, nested repo |
+| Customer Project | sub-sub-submodule |
+| Hermes Operator | orchestrator (bare), root repo |
+| Dotfile Package | Kit, stow package (unless quoting the tool itself) |
 | Issue (GitHub) | work item (reserved for external tracker), ticket, card |
 | HIC | H-OFF (old name) |
 | Logic Debater | Claude agent, code debater |
@@ -40,3 +43,4 @@ When multiple `[HITLFE]` and `[HIC]` tasks accumulate, they are surfaced as a si
 
 - "task" was used to mean both an external **Work Item** and a line in the **Daily Log** — resolved: **Work Item** is the external tracker unit, **Daily Log** is the markdown record.
 - "tag" was used to mean both a git tag and a line-item prefix — resolved: **Tag** always means the Conventional Commits type prefix in this context.
+- "Project" was overloaded across submodule depths (client codebase vs. nested submodule) — resolved: renamed to depth-explicit **Agency** / **Customer** / **Customer Project** hierarchy under the **Hermes Operator** (this workspace root), 2026-08-05.

@@ -1,0 +1,7 @@
+{
+  "sandbox": {
+    "enabled": false,
+    "autoAllowBashIfSandboxed": false
+  },
+  "prefersReducedMotion": true
+}

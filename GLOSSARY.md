@@ -1,8 +1,24 @@
 # Glossary — git-orchestrator
 
-## Project
-A client or personal codebase mounted as a git submodule under `src/<repo-name>`.
-_Avoid_: repo, app, site
+## Hermes Operator
+This workspace repo itself — the root orchestrator identity. Owns **Dotfile Packages** (personal machine config) directly and mounts **Agencies** as git submodules under `src/<repo-name>`.
+_Avoid_: orchestrator (bare), root repo
+
+## Agency
+A client or personal codebase mounted as a git submodule directly under `src/<repo-name>` of the Hermes Operator.
+_Avoid_: Project (old name), repo, app, site
+
+## Customer
+A nested git submodule inside an Agency, mounted under the Agency's own `src/<repo-name>`. Changes require a branch and a PR into the Agency's `main`; never commit directly to its `main`.
+_Avoid_: Sub-submodule (old name), inner repo, nested repo
+
+## Customer Project
+A nested git submodule inside a Customer — one level deeper than Customer (workspace → Agency → Customer → Customer Project). Same branch/PR discipline as Customer.
+_Avoid_: sub-sub-submodule
+
+## Dotfile Package
+A directory under `config/` in the Hermes Operator (e.g. `config/claude/`, `config/git/`, `config/tmux/`) managed by GNU Stow. Directory structure inside mirrors the path relative to `$HOME` or another explicit target; `stow -d config <name>` symlinks its contents into place. Belongs to the Hermes Operator directly — not to any Agency or Customer. Linked via `make link`; see root `Makefile` for the full bootstrap target list. `config/omc/` is the one exception: OMC's `project-memory.json` rewrites itself in place (atomic replace), which breaks a stow symlink on every write. `config/omc/project-memory.json` is a git-tracked fresh-install seed, bootstrap-copied into `.omc/` only if missing; `.omc/project-memory.json` is separately git-tracked at its live path (via a `.gitignore` exception) and accumulates real history on its own. `make sync-memory` refreshes the seed from the live copy when wanted.
+_Avoid_: Kit, stow package (unless quoting the tool itself)
 
 ## Work Item
 An issue tracker work item with a unique ID (e.g. `PROJ-42`). The atomic unit of planned work. Work items close only on lead developer sign-off — not on commit, not on GitHub issue close.
@@ -27,10 +43,6 @@ _Avoid_: design doc, RFC (unless the project adopts those explicitly)
 ## Architecture Document
 `ARCHITECTURE.md` at the repo root. Living description of the orchestrator's current structure, project layout, commit flow, and ADR index. Updated when structure changes (not when decisions change — that belongs in a new ADR).
 _Avoid_: system overview, design doc
-
-## Sub-submodule
-A nested git submodule inside a Project. Changes require a branch and a PR into `main`; never commit directly to its `main`.
-_Avoid_: inner repo, nested repo
 
 ## Issue
 A GitHub Issue on the orchestrator repo. Canonical tracker for AI-assisted orchestration. The external issue tracker remains source of truth for client-facing work items; Issues mirror or extend them for automation.
