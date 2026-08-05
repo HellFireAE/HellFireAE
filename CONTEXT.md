@@ -27,7 +27,7 @@ Standard tags for Daily Log line items and commit message types:
 - A **Customer Project** lives inside a Customer, one depth level further — same branch/PR discipline as Customer
 - A **Dotfile Package** is a directory under `config/` in the Hermes Operator managed by GNU Stow, mirroring `$HOME` layout
 - A **Work Item** appears in the **Daily Log** when work is in-progress or complete
-- A **Work Item** appears in the **Backlog** when planned but not yet started
+- A **Work Item** appears in the **Backlog** (the external issue tracker — no local file mirrors it, see ADR 0009) when planned but not yet started
 - Each line item in a **Daily Log** carries a **Tag** that becomes the commit type
 - An **ADR** covers orchestrator-level decisions only; project-level decisions live in `src/<repo-name>/docs/adr/`
 - **ARCHITECTURE.md** is the living structural map; ADRs are the immutable log of why it got there

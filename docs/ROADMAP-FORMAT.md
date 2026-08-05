@@ -1,12 +1,12 @@
 # ROADMAP Format
 
-`ROADMAP.md` sits at the repo root alongside `TASKS.md`. It is the strategic complement to TASKS.md's tactical focus.
+`ROADMAP.md` sits at the repo root. It is the strategic complement to the issue tracker's tactical focus (see ADR 0009 — planned work lives in the issue tracker, not a local `TASKS.md`).
 
 ## When to offer a ROADMAP
 
 Offer `ROADMAP.md` when any of these appear in the conversation:
 
-- Milestones that span multiple months or multiple TASKS.md cycles
+- Milestones that span multiple months or multiple issue-tracker cycles
 - Outcomes not tracked in the issue tracker (billing gates, contractual deadlines, relationship checkpoints, product themes)
 - Stakeholder-facing goals distinct from developer work items
 
@@ -15,10 +15,10 @@ Offer `ROADMAP.md` when any of these appear in the conversation:
 | Layer | File | Horizon | Focus | Audience |
 |-------|------|---------|-------|----------|
 | Strategic | `ROADMAP.md` | Months | Outcomes / milestones | Stakeholders + AI context |
-| Tactical | `TASKS.md` | Weeks | Work items (pending) | Developer + AI agent |
+| Tactical | Issue tracker | Weeks | Work items (pending) | Developer + AI agent |
 | Execution | Daily Log | Days | Completed work + SHAs | Developer + AI agent |
 
-Tasks in `TASKS.md` should map to a phase in `ROADMAP.md`. When a group of work items is complete, a milestone can be checked off. AI agents use `ROADMAP.md` to verify that current work aligns with the active phase.
+Issue-tracker work items should map to a phase in `ROADMAP.md`. When a group of work items is complete, a milestone can be checked off. AI agents use `ROADMAP.md` to verify that current work aligns with the active phase.
 
 ## Template
 

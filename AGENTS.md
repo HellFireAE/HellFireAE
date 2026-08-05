@@ -6,7 +6,6 @@ This workspace is the **Hermes Operator** — a personal orchestrator that manag
 ## Key Files
 | File | Description |
 |------|-------------|
-| `TASKS.md` | Forward-looking backlog of upcoming work items (planned but not started) |
 | `GLOSSARY.md` | Canonical term definitions for orchestrator concepts (Agency, Customer, Dotfile Package, Work Item, Daily Log, HITL tags, etc.) |
 | `LANGUAGE.md` | Rejected framings, behavioral rules, and resolved ambiguities for AI agents |
 | `CONTEXT.md` | Relationships, examples, Tags reference, and HITL classification framework |
@@ -31,7 +30,7 @@ This workspace is the **Hermes Operator** — a personal orchestrator that manag
 
 ### Common Patterns
 - New daily work goes in `docs/tasks/YYYY-MM-DD.md` seeded from `docs/tasks/YYYY-MM-DD.md` (template).
-- Planned work items belong in `TASKS.md` until work begins; then they move to the daily log.
+- Planned-but-not-started work lives in the external issue tracker / GitHub Issues, not a local backlog file (see [ADR 0009](docs/adr/0009-retire-tasks-md.md)).
 - ADRs belong in `docs/adr/` and cover orchestrator-level decisions only. Agency-level decisions live inside the submodule's own `docs/adr/`.
 
 ### Domain Language Maintenance

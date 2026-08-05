@@ -3,7 +3,7 @@
 # docs/tasks
 
 ## Purpose
-Daily work logs for the orchestrator. Each file named `YYYY-MM-DD.md` records in-progress and completed work items for that day, with line items tagged by Conventional Commits type. The file `YYYY-MM-DD.md` is the template for seeding new daily logs. Completed items carry commit SHAs inline for traceability. Forward-looking planned work lives in `TASKS.md` at the repo root, not here.
+Daily work logs for the orchestrator. Each file named `YYYY-MM-DD.md` records in-progress and completed work items for that day, with line items tagged by Conventional Commits type. The file `YYYY-MM-DD.md` is the template for seeding new daily logs. Completed items carry commit SHAs inline for traceability. Forward-looking planned work lives in the external issue tracker, not here (see ADR 0009).
 
 ## Key Files
 | File | Description |
@@ -17,7 +17,7 @@ Daily work logs for the orchestrator. Each file named `YYYY-MM-DD.md` records in
 - Each line item format: `- [x] tag: Description` (completed) or `- [ ] tag: Description` (planned/in-progress).
 - Valid tags: `feat`, `fix`, `bug`, `chore`, `docs`, `style`, `refactor`, `perf`, `test`, `infra`.
 - Group line items under `### [WORK-ITEM-ID] Work Item Title` headings, grouped under `## repo-name` sections.
-- Do not move work items here from `TASKS.md` until work actually begins.
+- Do not create work items here until work actually begins — check the issue tracker for what's planned.
 
 ### Common Patterns
 - File naming: `YYYY-MM-DD.md` using ISO 8601 date of the work day.

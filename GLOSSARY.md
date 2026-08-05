@@ -25,12 +25,12 @@ An issue tracker work item with a unique ID (e.g. `PROJ-42`). The atomic unit of
 _Avoid_: ticket, task, issue, card, story (unless quoting issue tracker hierarchy)
 
 ## Daily Log
-The `docs/tasks/YYYY-MM-DD.md` file recording completed and in-progress work items for a given day. Seed each new log from the `docs/tasks/YYYY-MM-DD.md` template. Line items use Conventional Commits tags only — HITL classification tags belong in TASKS.md, not here.
+The `docs/tasks/YYYY-MM-DD.md` file recording completed and in-progress work items for a given day. Seed each new log from the `docs/tasks/YYYY-MM-DD.md` template. Line items use Conventional Commits tags only — HITL classification tags belong in the issue tracker, not here.
 _Avoid_: task file, daily standup, journal
 
 ## Backlog
-`TASKS.md` at the repo root. Forward-looking list of upcoming work items, used for meeting prep and planning. Contains only pending items — completed items belong in the Daily Log only, never in the Backlog.
-_Avoid_: todo, roadmap, sprint
+The external issue tracker / GitHub Issues — forward-looking list of upcoming work items, used for meeting prep and planning (see ADR 0009). No local file mirrors it. Contains only pending items — completed items belong in the Daily Log only, never in the Backlog.
+_Avoid_: todo, roadmap, sprint, TASKS.md
 
 ## Tag
 A prefix on each line item in the Daily Log that classifies the type of change. Maps directly to the Conventional Commits type in the resulting commit message.
