@@ -60,21 +60,21 @@
   },
   "hotPaths": [
     {
-      "path": "Makefile",
-      "accessCount": 24,
-      "lastAccessed": 1785965202578,
-      "type": "file"
-    },
-    {
       "path": "AGENTS.md",
       "accessCount": 10,
       "lastAccessed": 1785953567676,
       "type": "file"
     },
     {
+      "path": "Makefile",
+      "accessCount": 10,
+      "lastAccessed": 1785953691543,
+      "type": "file"
+    },
+    {
       "path": "GLOSSARY.md",
-      "accessCount": 8,
-      "lastAccessed": 1785954014550,
+      "accessCount": 7,
+      "lastAccessed": 1785953572973,
       "type": "file"
     },
     {
@@ -96,12 +96,6 @@
       "type": "file"
     },
     {
-      "path": "config/git/AGENTS.md",
-      "accessCount": 3,
-      "lastAccessed": 1785958416865,
-      "type": "file"
-    },
-    {
       "path": ".claude/CLAUDE.md",
       "accessCount": 2,
       "lastAccessed": 1785951695035,
@@ -111,24 +105,6 @@
       "path": "docs/adr/0008-dotfiles-into-hermes-operator.md",
       "accessCount": 2,
       "lastAccessed": 1785952423197,
-      "type": "file"
-    },
-    {
-      "path": "config/bin/.local/bin/dotfiles",
-      "accessCount": 2,
-      "lastAccessed": 1785958413795,
-      "type": "file"
-    },
-    {
-      "path": "config/claude/CLAUDE.md",
-      "accessCount": 2,
-      "lastAccessed": 1785958419510,
-      "type": "file"
-    },
-    {
-      "path": "config/omc/project-memory.json",
-      "accessCount": 2,
-      "lastAccessed": 1785958428226,
       "type": "file"
     },
     {
@@ -150,15 +126,9 @@
       "type": "file"
     },
     {
-      "path": "config/systemd/desktop-tts.service",
+      "path": "config/git/AGENTS.md",
       "accessCount": 1,
-      "lastAccessed": 1785964151541,
-      "type": "file"
-    },
-    {
-      "path": "config/systemd/desktop-stt.service",
-      "accessCount": 1,
-      "lastAccessed": 1785964156139,
+      "lastAccessed": 1785952417180,
       "type": "file"
     }
   ],

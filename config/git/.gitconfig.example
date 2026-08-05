@@ -1,0 +1,28 @@
+# Copy to git/.gitconfig (gitignored) and fill in your values
+# Run `make link` to stow — creates ~/.gitconfig symlink
+
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+[user]
+	name = Your Name
+	email = you@example.com
+	signingkey = ssh-rsa AAAA...your-public-key...
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	# Native 1Password SSH signing helper (Linux)
+	program = /opt/1Password/op-ssh-sign
+
+[commit]
+	gpgsign = true
+
+[core]
+	# Native 1Password SSH agent socket (Linux)
+	sshCommand = ssh -o IdentityAgent=~/.1password/agent.sock

@@ -1,1 +1,5 @@
-/.omc
+/.omc/*
+!/.omc/project-memory.json
+.claude/settings.local.json
+.claude/CLAUDE.original.md
+git/.gitconfig
