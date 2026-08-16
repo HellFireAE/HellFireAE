@@ -1,0 +1,28 @@
+# Copy to git/.gitconfig (gitignored) and fill in your values
+# Run `make link` to stow — creates ~/.gitconfig symlink
+
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+[user]
+	name = Jonathan Mills
+	email = service@hellfireae.com
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCcVQuv/y/9OvWlk3RD6xb8zjBJnXSEWUhNu71t4viAdQ3MShR1uPBOx927kG86G40qJ7OeQBHI1x8yGLeLuvV9uiJOCRzJz0A5jUSLstTJOxFOrCsWSU3idzY+2OVZ/b8DbrB725oPI9i3XZEc6EOTEgGtzfgWUYbPHbUayFf43NSugmSj+zbkmbyyRJE/IlF0hqyRU0lnwVzxdKXBtgG+6mGnB/n04DQOfS3Uktrel74CJAE/UYgME9CfnVssukMFyrIRWCIm0e1z3v6xZOFeGVb/8642Iw/zzWVajqYvutVVpzO62QJ/Et4ZJkOfb/EPdmS5+yvvo0IiyHclig4FuzWuo7i6zPSGaP6+5jLYwiSX7DjKDckmqwFfQmSkJyAg9nYTpRFDlvIS9u1d6Gh3m4M/YL3WZJRwZXdGePf47kTastQC7x0Z8MDGgUXXA1Uf+bHMAvsguNfvsZTOB629CdrL6aI1i4t3562I7hYMmMCHgUDvDLBhiAXiGZLNod7+0QHo7zcayodk32JgpWtpmq5HzudHyaMVBDE2ntv1ESMslB5vpBHGiDYQpZ5EFwtoOpxnFfG7T+9/jZqg6j68SMn2yJXmWEo7O3KMUcaLdEEoR4q/SjA+rx1PZ1c7DhQ3cSFmim1pV0HZ4QDz0Lsrishp/okFtzkLvd86JZTfMQ==
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	# Native 1Password SSH signing helper (Linux)
+	program = /opt/1Password/op-ssh-sign
+
+[commit]
+	gpgsign = true
+
+[core]
+	# Native 1Password SSH agent socket (Linux)
+	sshCommand = ssh -o IdentityAgent=~/.1password/agent.sock
