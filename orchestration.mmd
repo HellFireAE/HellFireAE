@@ -5,76 +5,82 @@ config:
 flowchart BT
 
 subgraph Students["&lt;process&gt;"]
-    Qwen["`***Ex. qwen3.5-9b***`"]
-    Gemma["`***Ex. gemma4-12b***`"]
+    Qwen["`***Ex. qwen3.6-27b***`"]
+    Gemma["`***Ex. gemma4-31b***`"]
     OSS["`***Ex. gpt-oss-20b***`"]
 end
 
 subgraph Teachers["&lt;process&gt;"]
     claude["`***Ex. claude-sonnet-5***`"]
-    gemini["`***Ex. gemini-3.5-pro***`"]
-    openai["`***Ex. gpt-5.5***`"]
+    gemini["`***Ex. gemini-3.6-flash***`"]
+    openai["`***Ex. gpt-5.6-terra***`"]
 end
 
-subgraph Actors["&lt;process&gt;"]
-    logic(["`***Ex. gpt-oss-20b***`"])
-    feelings(["`***Ex. gpt-oss-120b***`"])
-    action(["`***Ex. gpt-5.5***`"])
+subgraph Executors["&lt;process&gt;"]
+    logic(["`***Ex. qwen3.6-35b-a3b***`"])
+    feelings(["`***Ex. gemma4-26b-a4b***`"])
+    action(["`***Ex. gpt-oss-120b***`"])
 end
 
-%% Workflow Logic
-Qwen@{ shape: terminal}
-Gemma@{ shape: terminal}
-OSS@{ shape: terminal}
-student@{ shape: proc}
-claude@{ shape: terminal}
-gemini@{ shape: terminal}
-openai@{ shape: terminal}
-teacher@{ shape: proc}
-actor@{ shape: proc}
-verify@{ shape: decision}
-plan@{ shape: procs}
-execute@{ shape: event}
-observation@{ shape: dbl-circ}
-orchestrator@{ shape: procs}
+%% Workflow: Logic
+orchestrator(("<b>Orchestrator</b>")) <==> observation["`**Observer**`"]
 
-%% Workflow Feelings
+student["`***Student***`"] --o orchestrator
+student --- Students
+Qwen --- Gemma
+Gemma --- OSS
+Students --- orchestrator
+
+teacher["`***Teacher***`"] ==o orchestrator
+teacher === Teachers
+openai === gemini
+gemini === claude
+Teachers === orchestrator
+
+executor["`***Execution***`"] -.-o orchestrator
+executor -.-x verify["`***Verify and nurture?***`"]
+verify -.- plan["`***Action plan secured***`"]
+Executors -.- plan & execute["`***Action execute!***`"]
+logic -.- feelings
+feelings -.- action
+execute -.- orchestrator
+
+%% Workflow: Feelings
+style observation fill:#77DD77,font-size:24px
+style orchestrator fill:#77DD77
+style student fill:#DD7777,color:#fff,font-size:24px
+style Students stroke:#DD7777
 style Qwen fill:#DD7777,color:#fff
 style Gemma fill:#7777DD,color:#fff
 style OSS fill:#77DD77
+style teacher fill:#7777DD,color:#fff,font-size:24px
+style Teachers stroke:#7777DD
 style claude fill:#DD7777,color:#fff
 style gemini fill:#7777DD,color:#fff
 style openai fill:#77DD77
+style executor fill:#77DD77,font-size:24px
+style verify fill:#77DD77
+style plan fill:#77DD77
+style Executors stroke:#77DD77,fill:#77DD77
+style execute fill:#77DD77
 style logic fill:#DD7777,color:#fff
 style feelings fill:#7777DD,color:#fff
 style action fill:#77DD77
-style observation fill:#77DD77,font-size:24px
-style orchestrator fill:#77DD77,color:#000
-style student fill:#DD7777,color:#fff,font-size:24px
-style Students stroke:#DD7777
-style teacher fill:#7777DD,color:#fff,font-size:24px
-style Teachers stroke:#0000DD
-style actor fill:#77DD77,font-size:24px
-style verify fill:#77DD77
-style plan fill:#77DD77
-style Actors stroke:#77DD77,fill:#77DD77
-style execute fill:#77DD77
 
-%% Workflow Action
-observation["`**Observer**`"] x--x orchestrator["<b>HERMES.md <br>tasks<br>STUDENT.md<br>then<br>TEACHER.md</b>"]
-student["`***Student node***`"] --o observation
-student --- Students
-Qwen --> Gemma
-Gemma --> OSS
-Students --x teacher["`***Teacher node***`"]
-teacher --- Teachers
-claude --> gemini
-gemini --> openai
-Teachers --- observation
-actor["`***Execution node***`"] --- observation
-actor --x verify["`***Verify and nurture?***`"]
-plan["`***Action plan secured***`"] --- verify & Actors
-Actors --- execute["`***Action execute!***`"]
-logic --> feelings
-feelings --> action
-execute --> observation
+%% Workflow: Actions
+observation@{ shape: dbl-circ}
+student@{ shape: lin-proc}
+Qwen@{ shape: terminal}
+Gemma@{ shape: terminal}
+OSS@{ shape: terminal}
+teacher@{ shape: lin-proc}
+openai@{ shape: terminal}
+gemini@{ shape: terminal}
+claude@{ shape: terminal}
+executor@{ shape: lin-proc}
+verify@{ shape: decision}
+plan@{ shape: doc}
+execute@{ shape: event}
+logic@{ shape: terminal}
+feelings@{ shape: terminal}
+action@{ shape: terminal}
